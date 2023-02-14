@@ -1,11 +1,17 @@
-/// Support for doing something awesome.
+// Copyright (c) 2021, Instantiations, Inc. Please see the AUTHORS
+// file for details. All rights reserved. Use of this source code is governed by
+// a BSD-style license that can be found in the LICENSE file.
+
+/// Lz4 encoder and decoder using a fast FFI-based implementation.
 ///
-/// More dartdocs go here.
+/// To use this library in your code:
+/// ```
+/// import 'package:es_compression/lz4.dart';
+/// ```
 library lz4;
 
-import "package:universal_io/io.dart";
-
-export 'src/lz4_base.dart';
-
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/lz4/codec.dart';
+export 'src/lz4/decoder.dart';
+export 'src/lz4/encoder.dart';
+export 'src/lz4/options.dart';
+export 'src/lz4/version.dart';

@@ -1,6 +1,6 @@
-# example
+# lz4_flutter_example
 
-A new Flutter project.
+Demonstrates how to use the lz4_flutter plugin.
 
 ## Getting Started
 
