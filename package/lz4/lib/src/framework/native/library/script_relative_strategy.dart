@@ -20,11 +20,8 @@ class OpenViaScriptRelativeStrategy extends OpenLibraryStrategy {
   @override
   DynamicLibrary? openFor(OpenLibrary openLibrary) {
     final libraryName = openLibrary.defaultLibraryFileName;
-    final scriptBlobPath =
-        '${File.fromUri(Platform.script).parent.path}/$libraryName';
+    final scriptBlobPath = '${File.fromUri(Platform.script).parent.path}/$libraryName';
     final scriptType = FileSystemEntity.typeSync(scriptBlobPath);
-    return scriptType != FileSystemEntityType.notFound
-        ? open(scriptBlobPath)
-        : null;
+    return scriptType != FileSystemEntityType.notFound ? open(scriptBlobPath) : null;
   }
 }

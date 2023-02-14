@@ -1,72 +1,67 @@
+// ignore_for_file: unnecessary_brace_in_string_interps, non_constant_identifier_names
+
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'dart:async';
+import 'package:lz4_flutter/lz4_flutter.dart';
 
-import 'package:lz4_flutter/lz4_flutter.dart' as lz4_flutter;
+void main(List<String> args) {
+  String name_library = "liblz4";
+  if (Platform.isIOS || Platform.isMacOS) {
+    name_library += ".framework/${name_library}";
+  }
+  if (Platform.isLinux || Platform.isAndroid) {
+    name_library += ".so";
+  }
+  if (Platform.isWindows) {
+    name_library += ".dll";
+  }
+  // Lz4Codec.libraryPath = "/home/hexaminate/Documents/HEXAMINATE/app/lz4/package/lz4_flutter/example/build/linux/x64/debug/bundle/lib/liblz4.so";
 
-void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: HomePage(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  late int sumResult;
-  late Future<int> sumAsyncResult;
+class HomePage extends StatefulWidget {
+  const HomePage({
+    super.key,
+  });
 
+  @override
+  State<HomePage> createState() => _HomePAgeState();
+}
+
+class _HomePAgeState extends State<HomePage> {
   @override
   void initState() {
+    // ignore: todo
+    // TODO: implement initState
     super.initState();
-    sumResult = lz4_flutter.sum(1, 2);
-    sumAsyncResult = lz4_flutter.sumAsync(3, 4);
+
+    Future(() async {
+      Lz4Codec.libraryPath = "/home/hexaminate/Documents/HEXAMINATE/app/lz4/package/lz4_flutter/example/build/linux/x64/release/bundle/lib/liblz4.so";
+
+      utf8.decode(lz4.decode(lz4.encode(utf8.encode("azka"))));
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    const textStyle = TextStyle(fontSize: 25);
-    const spacerSmall = SizedBox(height: 10);
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Native Packages'),
-        ),
-        body: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [
-                const Text(
-                  'This calls a native function through FFI that is shipped as source in the package. '
-                  'The native code is built as part of the Flutter Runner build.',
-                  style: textStyle,
-                  textAlign: TextAlign.center,
-                ),
-                spacerSmall,
-                Text(
-                  'sum(1, 2) = $sumResult',
-                  style: textStyle,
-                  textAlign: TextAlign.center,
-                ),
-                spacerSmall,
-                FutureBuilder<int>(
-                  future: sumAsyncResult,
-                  builder: (BuildContext context, AsyncSnapshot<int> value) {
-                    final displayValue =
-                        (value.hasData) ? value.data : 'loading';
-                    return Text(
-                      'await sumAsync(3, 4) = $displayValue',
-                      style: textStyle,
-                      textAlign: TextAlign.center,
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          "Sas",
         ),
       ),
     );

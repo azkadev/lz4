@@ -1,8 +1,7 @@
 name: lz4_flutter
-description: A new Flutter FFI plugin project.
+description: lz4 compress and decompress cross platform support.
 version: 0.0.1
-homepage:
-
+publish_to: none
 environment:
   sdk: '>=2.19.0 <3.0.0'
   flutter: ">=2.11.0"
@@ -10,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  lz4: 
+    path: ../lz4/
   plugin_platform_interface: ^2.0.2
 
 dev_dependencies:

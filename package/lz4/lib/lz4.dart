@@ -9,9 +9,28 @@
 /// import 'package:es_compression/lz4.dart';
 /// ```
 library lz4;
-
+ 
 export 'src/lz4/codec.dart';
 export 'src/lz4/decoder.dart';
 export 'src/lz4/encoder.dart';
 export 'src/lz4/options.dart';
 export 'src/lz4/version.dart';
+
+class LZ4 {
+  String pathLzLibrary;
+  LZ4({
+    required this.pathLzLibrary,
+  });
+
+  List<int> encode(List<int> data) {
+    return [];
+
+  }
+
+  List<int> decode(List<int> data) {
+    return [];
+
+  }
+
+
+}
