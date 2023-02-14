@@ -23,17 +23,17 @@ set(ES_BITS 32)
 endif ()
 
 
-include(FetchContent)
+# include(FetchContent)
 
-FetchContent_Declare(
-  lz4_source
-  GIT_REPOSITORY https://github.com/lz4/lz4.git
-  GIT_TAG dev
-)
+# FetchContent_Declare(
+#   lz4_source
+#   GIT_REPOSITORY https://github.com/lz4/lz4.git
+#   GIT_TAG dev
+# )
 
-FetchContent_MakeAvailable(lz4_source)
+# FetchContent_MakeAvailable(lz4_source)
 
-set(LZ4_SOURCES ${lz4_source_SOURCE_DIR})
+set(LZ4_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/lz4)
 
 add_library(lz4_library SHARED 
     ${LZ4_SOURCES}/lib/lz4.h
